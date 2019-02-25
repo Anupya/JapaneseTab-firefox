@@ -1,20 +1,22 @@
 body {
 	width: 400px;
+	font-family: 'Arial';
 }
 
 p {
 	margin: 0 auto;
 	text-align: center;
 	max-width: 350px;
+	font-size: 14px;
 }
 /* JAPANESE --------------------------------- */
 
 .circle {
 	position: fixed;
 	border-radius: 50%;
-	width: 70vh;
-	height: 70vh;
-	margin-top: 2.5vh;
+	width: 65vh;
+	height: 65vh;
+	margin-top: 5vh;
 	align-items: center;
 	margin-left: 5.5vh;
 	background-color: #F3D3EA; 
