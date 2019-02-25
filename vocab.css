@@ -26,14 +26,6 @@ a {
 
 /* COLOURS ------------------------------------ */
 
-#toggleLinks {
-	position: fixed;
-	height: 20px;
-	width: 20px;
-	bottom: 3vh;
-	left: 5vh;
-}
-
 .colourSwatch {
 	position: fixed;
 	bottom: 3vh;
@@ -161,6 +153,18 @@ a {
 }
 
 /* MOST VISITED ------------------------ */
+
+#toggleLinks {
+	position: fixed;
+	height: 20px;
+	width: 30px;
+	bottom: 3vh;
+	left: 5vh;
+}
+
+#toggleLinks:hover {
+	cursor: pointer;
+}
 
 .most_visited {
 	position: relative;

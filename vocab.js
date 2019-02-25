@@ -127,7 +127,7 @@ var wordList = [
   "lead","leader","leaf","learn","least","leather","leave","leaving",
   "left","leg","length","lesson","let","letter","level",
   "library","lie","life","light","like","likely","limited",
-  "lion","lips","liquid","listen","little","live","living","load","local","locate",
+  "lion","lips","liquid","listen","little","living","load","local","locate",
   "location","log","lonely","long","look","loose","lose","loss","lost","lot","loud",
   "love","lovely","low","lower","luck","lunch","lungs",
   "lying","machine","machinery","mad","made","magic","magnet","mail",
@@ -400,7 +400,7 @@ for (var i = 0; i < palette.length; i++) {
 
 			// adds thicker border around current selection
 			document.getElementById(palette[index].id).style.border = '1px black solid';
-			Cookies.set("color", index, { path: '/'});
+			Cookies.set("color", index);
 		})
 	}) (i);
 	
@@ -408,11 +408,11 @@ for (var i = 0; i < palette.length; i++) {
 
 // if already chose a colour, use that colour
 if (Cookies.get("color")) {
-	Cookies.set("color", Cookies.get("color"), { path: '/'});
+	Cookies.set("color", Cookies.get("color"));
 }
 // if no colour chosen, use default colour
 else {
-	Cookies.set("color", 3, { path: '/'});
+	Cookies.set("color", 3);
 }
 
 // apply the colour
@@ -427,27 +427,34 @@ document.getElementById('toggleLinks').addEventListener("click", function() {
 
 	if (status == 'hidden') {
 
+		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 		document.getElementById('mostVisited_div').style.visibility = 'visible';
-		Cookies.set("linksVisibility", "visible", { path: '/'});
+		Cookies.set("linksVisibility", "visible");
 	}
 	else {
 
 		document.getElementById('mostVisited_div').style.visibility = 'hidden';
-		Cookies.set("linksVisibility", "hidden", { path: '/'});
+		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+		Cookies.set("linksVisibility", "hidden");
 	}
 
 });
 
 // if already chose a colour, use that colour
 if (Cookies.get("linksVisibility")) {
-	Cookies.set("linksVisibility", Cookies.get("linksVisibility"), { path: '/'});
+	Cookies.set("linksVisibility", Cookies.get("linksVisibility"));
 }
 // if no colour chosen, use default colour
 else {
-	Cookies.set("linksVisibility", "visible", { path: '/'});
+	Cookies.set("linksVisibility", "visible");
 }
 
 // save the setting
 document.getElementById('mostVisited_div').style.visibility = Cookies.get("linksVisibility");
 
-
+if (Cookies.get("linksVisibility") == "hidden") {
+	document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+}
+else {
+	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+}
