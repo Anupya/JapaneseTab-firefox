@@ -400,7 +400,7 @@ for (var i = 0; i < palette.length; i++) {
 
 			// adds thicker border around current selection
 			document.getElementById(palette[index].id).style.border = '1px black solid';
-			Cookies.set("color", index);
+			Cookies.set("color", index, { path: '/'});
 		})
 	}) (i);
 	
@@ -408,11 +408,11 @@ for (var i = 0; i < palette.length; i++) {
 
 // if already chose a colour, use that colour
 if (Cookies.get("color")) {
-	Cookies.set("color", Cookies.get("color"));
+	Cookies.set("color", Cookies.get("color"), { path: '/'});
 }
 // if no colour chosen, use default colour
 else {
-	Cookies.set("color", 3);
+	Cookies.set("color", 3, { path: '/'});
 }
 
 // apply the colour
@@ -428,23 +428,23 @@ document.getElementById('toggleLinks').addEventListener("click", function() {
 	if (status == 'hidden') {
 
 		document.getElementById('mostVisited_div').style.visibility = 'visible';
-		Cookies.set("linksVisibility", "visible");
+		Cookies.set("linksVisibility", "visible", { path: '/'});
 	}
 	else {
 
 		document.getElementById('mostVisited_div').style.visibility = 'hidden';
-		Cookies.set("linksVisibility", "hidden");
+		Cookies.set("linksVisibility", "hidden", { path: '/'});
 	}
 
 });
 
 // if already chose a colour, use that colour
 if (Cookies.get("linksVisibility")) {
-	Cookies.set("linksVisibility", Cookies.get("linksVisibility"));
+	Cookies.set("linksVisibility", Cookies.get("linksVisibility"), { path: '/'});
 }
 // if no colour chosen, use default colour
 else {
-	Cookies.set("linksVisibility", "visible");
+	Cookies.set("linksVisibility", "visible", { path: '/'});
 }
 
 // save the setting
