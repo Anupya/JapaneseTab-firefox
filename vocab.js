@@ -299,7 +299,7 @@ document.getElementById("part of speech").innerHTML = actualposstring.toLowerCas
 document.getElementById("definition").innerHTML = actualdefstring.toLowerCase();
 
 function onAnchorClick(event) {
-  chrome.tabs.create({ url: event.srcElement.href });
+  browser.tabs.create({ url: event.srcElement.href });
   return false;
 }
 
@@ -311,51 +311,54 @@ function buildPopupDom(mostVisitedURLs) {
 
   for (var i = 0; i < desired_url_num; i++) {
     
-    var a_link = ul.appendChild(document.createElement('a'));
-    a_link.href = mostVisitedURLs[i].url; 
+    if (mostVisitedURLs[i] != undefined) {
 
-    var li = a_link.appendChild(document.createElement('li'));
-    li.className = "link";
-    
-    var img = li.appendChild(document.createElement("img"));
-    var a = li.appendChild(document.createElement('a'));
+	    var a_link = ul.appendChild(document.createElement('a'));
+	    a_link.href = mostVisitedURLs[i].url; 
 
-    img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURLs[i].url;
-    img.className = "favicon";
-    a.href = mostVisitedURLs[i].url;
-    a.className = "link_text";
+	    var li = a_link.appendChild(document.createElement('li'));
+	    li.className = "link";
+	    
+	    var img = li.appendChild(document.createElement("img"));
+	    var a = li.appendChild(document.createElement('a'));
 
-    var url_title = (mostVisitedURLs[i].title);
+	    img.src = "http://www.google.com/s2/favicons?domain=" + mostVisitedURLs[i].url;
+	    img.className = "favicon";
+	    a.href = mostVisitedURLs[i].url;
+	    a.className = "link_text";
 
-    if (mostVisitedURLs[i].url == "http://www.youtube.com/") {
-      url_title = "YouTube";}
+	    var url_title = (mostVisitedURLs[i].title);
 
-    if (mostVisitedURLs[i].url == "http://www.google.com") {
-      url_title = "Google";}
+	    if (mostVisitedURLs[i].url == "http://www.youtube.com/") {
+	      url_title = "YouTube";}
 
-    if (mostVisitedURLs[i].url == "http://www.facebook.com/") {
-      url_title = "Facebook";}
+	    if (mostVisitedURLs[i].url == "http://www.google.com") {
+	      url_title = "Google";}
 
-    if (mostVisitedURLs[i].url == "http://www.baidu.com") {
-      url_title = "Baidu";}
+	    if (mostVisitedURLs[i].url == "http://www.facebook.com/") {
+	      url_title = "Facebook";}
 
-    if (mostVisitedURLs[i].url == "http://www.yahoo.com") {
-      url_title = "Yahoo";}
+	    if (mostVisitedURLs[i].url == "http://www.baidu.com") {
+	      url_title = "Baidu";}
 
-    if (mostVisitedURLs[i].url == "http://www.gmail.com/") {
-      url_title = "Gmail";}
+	    if (mostVisitedURLs[i].url == "http://www.yahoo.com") {
+	      url_title = "Yahoo";}
 
-    if (mostVisitedURLs[i].url == "http://drive.google.com/") {
-      url_title = "Google Drive";}
+	    if (mostVisitedURLs[i].url == "http://www.gmail.com/") {
+	      url_title = "Gmail";}
 
-    if (mostVisitedURLs[i].url == "https://twitter.com/") {
-      url_title = "Twitter";}
+	    if (mostVisitedURLs[i].url == "http://drive.google.com/") {
+	      url_title = "Google Drive";}
+
+	    if (mostVisitedURLs[i].url == "https://twitter.com/") {
+	      url_title = "Twitter";}
 
 
-    a.appendChild(document.createTextNode(url_title));
+	    a.appendChild(document.createTextNode(url_title));
+	}
   }
 }
-chrome.topSites.get(buildPopupDom);
+browser.topSites.get(buildPopupDom);
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -423,7 +426,6 @@ getting.then(setCurrentColor, onErrorColor);
 document.getElementById('toggleLinks').addEventListener("click", function() {
 
 	var status = document.getElementById('mostVisited_div').style.visibility;
-	console.log('status is' + status);
 
 	if (status == 'hidden') {
 
