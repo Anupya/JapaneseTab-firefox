@@ -1,16 +1,16 @@
-# JapaneseTab
+# JapaneseTab-firefox
 
 Learn romaji, kanji, hiragana, katakana without even realizing it. <br >
-A Chrome extension that helps you learn Japanese with every new tab. 
+A Firefox add-on that helps you learn Japanese with every new tab. 
 
-[![HitCount](http://hits.dwyl.com/Anupya/JapaneseTab.svg)](http://hits.dwyl.com/Anupya/JapaneseTab) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HitCount](http://hits.dwyl.com/Anupya/JapaneseTab-firefox.svg)](http://hits.dwyl.com/Anupya/JapaneseTab-firefox) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-![Screenshot](https://github.com/Anupya/JapTab/blob/master/logotitlesmaller.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/logotitlesmaller.png)
 
 
 ## Installation
- Click [here](https://chrome.google.com/webstore/detail/japanesetab/jndamehabjcbgopalgabjpplldmjnnfn) to download the extension: <br />
+ Click [here](https://addons.mozilla.org/en-US/firefox/addon/japanesetab/) to download the extension: <br />
  ![Screenshot](http://static1.squarespace.com/static/4f5810d9e4b0ebbf0a1507a6/546cff26e4b08897ae07e062/55b2a832e4b051ab94b88fde/1440437069496/?format=1000w)
  
  ## Features
@@ -18,28 +18,29 @@ A Chrome extension that helps you learn Japanese with every new tab.
  - Learn pronounciation quickly with romaji
  - Includes kanji, hiragana and katakana translations
  - Customizable background - choose from 8 Japanese pastel swatches
+ - Display/hide top visited sites
  
  ## Coming up
  - Audio button
  
  ## Development Setup
- 
- 1. Clone source code: git clone https://github.com/Anupya/JapaneseTab.git
- 2. Go to *Chrome Settings* -> *More Tools* -> *Extensions*
- 3. Enable **developer mode**
- 4. Click **Load unpacked extension...** and load the JapaneseTab folder
+
+ 1. Clone source code: git clone https://github.com/Anupya/JapaneseTab-firefox.git
+ 2. Type *about:debugging* in the Firefox address bar
+ 3. Click *Load Temporary Add-on* 
+ 4. Select any file inside the 'JapaneseTab-firefox' folder and hit enter
  
  ## Contributing guidelines
  
- Search through the [issues](https://github.com/Anupya/JapaneseTab/issues) and feel free to make a pull request for any of them :)
+ Search through the [issues](https://github.com/Anupya/JapaneseTab-firefox/issues) and feel free to make a pull request for any of them :)
  
 ## License
 
-MIT - Read it [here](https://github.com/Anupya/JapaneseTab/blob/master/LICENSE)
+MIT - Read it [here](https://github.com/Anupya/JapaneseTab-firefox/blob/master/LICENSE)
 
 ## Screenshots
-![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot5.png)
-![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot1.png)
-![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot2.png)
-![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot3.png)
-![Screenshot](https://github.com/Anupya/JapaneseTab/blob/master/screenshot4.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/screenshot5.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/screenshot1.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/screenshot2.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/screenshot3.png)
+![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/screenshot4.png)
