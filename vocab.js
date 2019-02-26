@@ -10,7 +10,7 @@
  */
 !function(e){var n=!1;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var o=window.Cookies,t=window.Cookies=e();t.noConflict=function(){return window.Cookies=o,t}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var o=arguments[e];for(var t in o)n[t]=o[t]}return n}return function n(o){function t(n,r,i){var c;if("undefined"!=typeof document){if(arguments.length>1){if("number"==typeof(i=e({path:"/"},t.defaults,i)).expires){var a=new Date;a.setMilliseconds(a.getMilliseconds()+864e5*i.expires),i.expires=a}i.expires=i.expires?i.expires.toUTCString():"";try{c=JSON.stringify(r),/^[\{\[]/.test(c)&&(r=c)}catch(e){}r=o.write?o.write(r,n):encodeURIComponent(String(r)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=(n=(n=encodeURIComponent(String(n))).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent)).replace(/[\(\)]/g,escape);var s="";for(var f in i)i[f]&&(s+="; "+f,!0!==i[f]&&(s+="="+i[f]));return document.cookie=n+"="+r+s}n||(c={});for(var p=document.cookie?document.cookie.split("; "):[],d=/(%[0-9A-Z]{2})+/g,u=0;u<p.length;u++){var l=p[u].split("="),C=l.slice(1).join("=");this.json||'"'!==C.charAt(0)||(C=C.slice(1,-1));try{var g=l[0].replace(d,decodeURIComponent);if(C=o.read?o.read(C,g):o(C,g)||C.replace(d,decodeURIComponent),this.json)try{C=JSON.parse(C)}catch(e){}if(n===g){c=C;break}n||(c[g]=C)}catch(e){}}return c}}return t.set=t,t.get=function(e){return t.call(t,e)},t.getJSON=function(){return t.apply({json:!0},[].slice.call(arguments))},t.defaults={},t.remove=function(n,o){t(n,"",e(o,{expires:-1}))},t.withConverter=n,t}(function(){})});
 
-// all english words - 1821
+// all english words - 1814
 var wordList = [
 
   // got a list of common english words
@@ -134,7 +134,7 @@ var wordList = [
   "master","material","mathematics","matter","may","maybe","me","meal",
   "mean","means","meant","measure","meat","medicine","meet","melted",
   "member","memory","men","mental","merely","met","metal","method",
-  "mice","middle","might","mighty","mile","military","milk","mill",
+  "mice","middle","might","mighty","military","milk","mill",
   "mind","minerals","minute","mirror","missing","mission","mistake",
   "mix","mixture","model","moment","money","monkey",
   "month","mood","moon","morning","most","mostly","mother",
@@ -219,7 +219,7 @@ var wordList = [
   "tears","teeth","telephone","tell","temperature","ten","term","terrible",
   "thank","that","them","themselves","theory","there","therefore","these","they",
   "thick","thin","thing","think","third","thirty","this","those",
-  "thou","though","thought","thousand","thread","three","threw","throat","through",
+  "thou","thought","thousand","thread","three","threw","throat","through",
   "throughout","throw","thrown","thumb","thus","thy","tide","tie","tight","till","time",
   "tin","tiny","tip","tired","title","tobacco","today","together","told","tomorrow",
   "tone","tongue","tonight","too","took","tool","top","topic",
@@ -398,99 +398,69 @@ for (var i = 0; i < palette.length; i++) {
 
 			// adds thicker border around current selection
 			document.getElementById(palette[index].id).style.border = '1px black solid';
-			Cookies.set("color", index);
-
-			/*
-			var actualCookie = "color:";
-			actualCookie += index;
-			document.cookie = actualCookie;
-
-			console.log(document.cookie);
-			*/
-			//browser.cookies.set({"url": 'activeTab', "name":"color", "value":index.toString()});
+			browser.storage.sync.set ({
+				color: index
+			});
 		})
 	}) (i);
 	
 }
 
-
-// if already chose a colour, use that colour
-if (Cookies.get("color")) {
-	console.log("COOKIE EXISTS");
-	Cookies.set("color", Cookies.get("color"));
+function setCurrentColor(result) {
+	palette[result.color].click();
 }
-// if no colour chosen, use default colour
-else {
-	console.log("COOKIE DOES NOT EXIST");
+
+function onErrorColor(result) {
 	palette[3].click();
-	Cookies.set("color", 3);
-	console.log("COOKIE HAS BEEN SET FOR FIRST TIME");
-	console.log(Cookies.get("color"));
 }
 
-// apply the colour
-palette[Cookies.get("color")].click();
+var getting = browser.storage.sync.get("color");
+getting.then(setCurrentColor, onErrorColor);
 
 
-/* COPIED FROM GET DOCUMENTATION
+/* LINKS --------------------------------------- */
 
-function logCookie(cookie) {
-	if (cookie) {
-		browser.cookies.set({url: 'activeTab', name:"color", value: cookie});
-		console.log(cookie);
+document.getElementById('toggleLinks').addEventListener("click", function() {
+
+	var status = document.getElementById('mostVisited_div').style.visibility;
+	console.log('status is' + status);
+
+	if (status == 'hidden') {
+
+		document.getElementById('mostVisited_div').style.visibility = 'visible';
+		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+		browser.storage.sync.set ({
+			visibility: 'visible'
+		});
 	}
 	else {
-		// an unexpected error occurred: undefined
-		browser.cookies.set({url: 'moz-extension://37c78d2b-02a1-f247-89b0-158dd77dacb5/vocab.html', path:'/', name:"color", value: "3"});
-		console.log("no cookie");
-		//palette[browser.cookies.get({url: 'activeTab', name:"color"}).value].click();
+
+		document.getElementById('mostVisited_div').style.visibility = 'hidden';
+		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+		browser.storage.sync.set ({
+			visibility: 'hidden'
+		});
 	}
+
+});
+
+
+function setCurrentVisibility(result) {
+	document.getElementById('mostVisited_div').style.visibility = result.visibility;
+
+	if (result.visibility == "hidden") {
+		document.getElementById('toggleLinks').innerHTML = "<img src='/show.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+	}
+	else {
+		document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
+	}
+	
 }
-browser.cookies.get({url: 'activeTab', name:"color"}).then(logCookie);
-*/
 
-
-
-
-
-/*
-// if already chose a colour, use that colour
-if (document.cookie.split(';').filter((item) => item.trim().startsWith('color=')).length) {
-    console.log('The cookie "color" exists (ES6)')
+function onErrorVisibility(result) {
+	document.getElementById('mostVisited_div').style.visibility = 'visible';
+	document.getElementById('toggleLinks').innerHTML = "<img src='/hide.png' style='position: fixed; opacity: 0.2; height: 20px; width: 30px; left: 5vh; bottom: 5vh;'></img";
 }
 
-// if no colour chosen, use default colour
-else {
-	document.cookie = "color:3";
-	console.log(document.cookie);
-}
-*/
-
-
-
-
-
-/*
-
-// if already chose a colour, use that colour
-if (browser.cookies.get({url: 'activeTab', name:"color"})) {
-	var curColor = browser.cookies.get({url: "activeTab", name:"color"}).value.toString();
-	browser.cookies.set({
-		url: 'activeTab', 
-		name: "color", 
-		value: curColor});
-	//browser.cookies.set("color", Cookies.get("color"));
-}
-// if no colour chosen, use default colour
-else {
-	browser.cookies.set({url: 'activeTab', name:"color", value: "3"});
-	//browser.cookies.set("color", 3);
-}
-*/
-
-//var num = document.cookie.replace(/(?:(?:^|.*;\s*)test2\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-//palette[num].click();
-
-// apply the colour
-//palette[browser.cookies.get({url: 'activeTab', name:"color"})].click();
-//palette[browser.cookies.get("color")].click();
+var gettingVisibility = browser.storage.sync.get("visibility");
+gettingVisibility.then(setCurrentVisibility, onErrorVisibility);
