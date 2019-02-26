@@ -10,7 +10,7 @@ A Firefox add-on that helps you learn Japanese with every new tab.
 
 
 ## Installation
- Click [here](https://addons.mozilla.org/en-US/firefox/addon/japanesetab/) to download the extension: <br />
+ Click [here](https://addons.mozilla.org/en-US/firefox/addon/japanesetab/) to download the add-on: <br /><br />
  ![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/firefox.png)
  
  ## Features
