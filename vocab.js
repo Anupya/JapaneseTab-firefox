@@ -69,7 +69,7 @@ browser.storage.sync.get("romaji").then(function(value) {
 	}
 	else {
 		browser.storage.sync.set ({
-			romaji: string(value.romaji)
+			romaji: String(value.romaji)
 		});
 	}
 });
@@ -84,7 +84,7 @@ browser.storage.sync.get("topText").then(function(value) {
 	}
 	else {
 		browser.storage.sync.set ({
-			topText: string(value.topText)
+			topText: String(value.topText)
 		});
 	}
 });
