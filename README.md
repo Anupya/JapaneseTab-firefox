@@ -3,7 +3,7 @@
 Learn romaji, kanji, hiragana, katakana without even realizing it. <br >
 A Firefox add-on that helps you learn Japanese with every new tab. 
 
-[![HitCount](http://hits.dwyl.com/Anupya/JapaneseTab-firefox.svg)](http://hits.dwyl.com/Anupya/JapaneseTab-firefox) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FAnupya%2FJapaneseTab-firefox) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/logotitlesmaller.png)
@@ -14,14 +14,13 @@ A Firefox add-on that helps you learn Japanese with every new tab.
  ![Screenshot](https://github.com/Anupya/JapaneseTab-firefox/blob/master/firefox.png)
  
  ## Features
- - 1800+ words
- - Learn pronounciation quickly with romaji
- - Includes kanji, hiragana and katakana translations
+ - 23,000+ words
+ - Learn pronounciation quickly with romaji + audio
+ - Includes hiragana, kanji and katakana translations
  - Customizable background - choose from 8 Japanese pastel swatches
  - Display/hide top visited sites
- 
- ## Coming up
- - Audio button
+ - Customize which writing (kanji or hiragana) you want to see in focus
+ - Toggle romaji on/off
  
  ## Development Setup
 
