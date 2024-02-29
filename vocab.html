@@ -3,68 +3,64 @@
 	<head>
 		<meta charset="utf-8" content-type="text/html">
 		<link rel="stylesheet" type="text/css" href="vocab.css">
-		</script>
+		<script type="text/javascript" src="wordList.js"></script>
+		<script type="text/javascript" src="wanakana.min.js"></script>
 	</head>
 
-<body id="body">
+	<body id="body">
+		<div style="text-align:center;">
+			<h1 class="romaji" id="romaji"></h1>
+			<div>
+				<div class = "hiraganaclass">
+					<a class="hiragana" id="hiragana"></a>
+					<a class="audio" id="audio"></a>
+				</div>
 
-<div style="text-align:center;">
-	<h1 class="romaji" id="romaji"></h1>
-	<div>
+				<div class = "kaclass">
+					<a class="kanji" id="kanji"></a>
+					<a class="dot">•</a>
+					<a class="katakana" id="katakana"></a>
+				</div>
 
-		<div class = "hiraganaclass">
-			<a class="hiragana" id="hiragana"></a>
-			<a class="audio" id="audio"></a>
+				<p class="definition" id="definition"></p>
+
+				<div class = "pronounciation_pos">
+					<a class="pos" id="part of speech"></a>
+				</div>
+			</div>
+			
 		</div>
-
-		<div class = "kaclass">
-			<a class="kanji" id="kanji"></a>
-			<a class="dot">•</a>
-			<a class="katakana" id="katakana"></a>
-		</div>
-
-		<p class="definition" id="definition"></p>
-
-		<div class = "pronounciation_pos">
-			<a class="pos" id="part of speech"></a>
-		</div>
-	</div>
-	
-</div>
-	
-    <div style="align-items:center; visibility:visible;" id="mostVisited_div" class="most_visited"></div>
-
-    <!-- Options -->
-	<div id="goToOptions">
-		<div id="optionsImg"></div>
-		<div id="romajiCheck"></div>
-		<div id="topText"></div>
-	</div>
-
-	<div id="toggleLinks"></div>
- 	<div class="colourSwatch">
-
- 		<div class="upperSwatch">
-	 		<div class="colourBlock" id="yellowlight"></div>
-	 		<div class="colourBlock" id="orangelight"></div>
-	 		<div class="colourBlock" id="pinklight"></div>
-	 		<div class="colourBlock" id="pink"></div>
-	 	</div>
-
-	 	<div class="lowerSwatch">
-	 		<div class="colourBlock" id="pinkdark"></div>
-	 		<div class="colourBlock" id="purplelight"></div>
-		    <div class="colourBlock" id="bluelight"></div>
-		    <div class="colourBlock" id="greenlight"></div>
-		</div>
-
-	</div>
-
-</body>
-	
-	<script src="vocab.js" type="text/javascript">
 		
-		
-	</script>
+		<div style="align-items:center; visibility:visible;" id="mostVisited_div" class="most_visited"></div>
+
+		<!-- Options -->
+		<div id="goToOptions">
+			<div id="optionsImg"></div>
+			<div id="romajiCheck"></div>
+			<div id="topText"></div>
+		</div>
+
+		<div id="toggleLinks"></div>
+		<div class="colourSwatch">
+
+			<div class="upperSwatch">
+				<div class="colourBlock" id="yellowlight"></div>
+				<div class="colourBlock" id="orangelight"></div>
+				<div class="colourBlock" id="pinklight"></div>
+				<div class="colourBlock" id="pink"></div>
+			</div>
+
+			<div class="lowerSwatch">
+				<div class="colourBlock" id="pinkdark"></div>
+				<div class="colourBlock" id="purplelight"></div>
+				<div class="colourBlock" id="bluelight"></div>
+				<div class="colourBlock" id="greenlight"></div>
+			</div>
+
+		</div>
+
+	</body>
+	
+	<script src="vocab.js" type="text/javascript"></script>
 
 </html>
